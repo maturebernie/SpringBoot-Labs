@@ -1,3 +1,4 @@
+
 # dubbo 配置项，对应 DubboConfigurationProperties 配置类
 dubbo:
   # Dubbo 应用配置
@@ -11,3 +12,16 @@ dubbo:
     timeout: 1000 # 【重要】远程服务调用超时时间，单位：毫秒。默认为 1000 毫秒，胖友可以根据自己业务修改
     UserRpcService:
       version: 1.0.0
+    filter: metrics
+    group: dubbo
+  metadata-report:
+    address: zookeeper://127.0.0.1:2181
+  monitor:
+    protocol: registry
+  # 开启这个才能monitor才能收集qps的数据
+  # https://www.zhangbj.com/p/340.html
+  metrics:
+    protocol: dubbo
+    port: 20882
+server:
+  port: 8899

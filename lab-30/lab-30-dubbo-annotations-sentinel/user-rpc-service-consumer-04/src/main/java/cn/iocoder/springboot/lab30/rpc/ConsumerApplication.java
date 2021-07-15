@@ -3,6 +3,7 @@ package cn.iocoder.springboot.lab30.rpc;
 import cn.iocoder.springboot.lab30.rpc.api.UserRpcService;
 import cn.iocoder.springboot.lab30.rpc.dto.UserDTO;
 import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubboConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +13,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
+@EnableDubboConfig
 public class ConsumerApplication {
 
     public static void main(String[] args) {
@@ -29,8 +31,8 @@ public class ConsumerApplication {
 
         @Override
         public void run(String... args) throws Exception {
-            UserDTO user = userRpcService.get(1);
-            logger.info("[run][发起一次 Dubbo RPC 请求，获得用户为({})", user);
+//            UserDTO user = userRpcService.get(1);
+//            logger.info("[run][发起一次 Dubbo RPC 请求，获得用户为({})", user);
         }
 
     }
